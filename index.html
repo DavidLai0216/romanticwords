@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心動餘音：跨越緯度的 365 句深情對白</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            --accent-color: #9d1b32; /* 浪漫酒紅 */
+            --glass-bg: rgba(255, 255, 255, 0.45);
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%; width: 100%;
+            font-family: 'Noto Serif TC', serif;
+            display: flex; justify-content: center; align-items: center;
+            background: var(--bg-gradient);
+            overflow: hidden;
+        }
+
+        /* 背景流光效果 */
+        .ambient {
+            position: absolute; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.3) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(135, 206, 235, 0.2) 0%, transparent 40%);
+        }
+
+        .container {
+            width: 85%; max-width: 900px;
+            padding: 50px; text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px;
+            color: var(--accent-color); margin-bottom: 40px; opacity: 0.8;
+        }
+
+        .main-quote { min-height: 200px; display: flex; flex-direction: column; justify-content: center; }
+
+        #original {
+            font-size: 2.2rem; font-style: italic; color: #333;
+            margin-bottom: 15px; line-height: 1.3; font-family: 'Playfair Display', serif;
+        }
+
+        #translation {
+            font-size: 1.6rem; font-weight: 700; color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .supplement-box {
+            margin-top: 30px; padding-top: 20px;
+            border-top: 1px solid rgba(157, 27, 50, 0.15);
+        }
+
+        #supplement { font-size: 1rem; color: #666; font-weight: 300; line-height: 1.6; }
+
+        button {
+            margin-top: 50px; padding: 16px 45px;
+            background: var(--accent-color); color: white;
+            border: none; border-radius: 50px; font-size: 1.1rem;
+            cursor: pointer; box-shadow: 0 10px 20px rgba(157, 27, 50, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Noto Serif TC', serif; letter-spacing: 2px;
+        }
+
+        button:hover { transform: scale(1.05); background: #7a1527; box-shadow: 0 15px 30px rgba(157, 27, 50, 0.3); }
+
+        .fade-in { animation: fadeIn 1.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="container">
+    <h1>Global Resonance of Love</h1>
+    
+    <div class="main-quote" id="display-area">
+        <div id="original" class="fade-in">"Awaiting your touch..."</div>
+        <div id="translation" class="fade-in">點擊下方按鈕，開啟浪漫</div>
+    </div>
+    
+    <div class="supplement-box">
+        <div id="supplement" class="fade-in">這是一場跨越語言與國界的數位策展。</div>
+    </div>
+
+    <button onclick="revealLove()">領取今日愛戀</button>
+</div>
+
+<script>
+    // 資料來源整理自
+    const romanceData = [
+        // 第一章：悸動
+        { id: "001", orig: "\"You had me at hello.\"", trans: "「你在說『哈囉』的時候，就已經俘獲了我的心。」", info: "電影《征服情海》，展現了極致的簡約浪漫。" },
+        { id: "002", orig: "\"Love is like the wind, you can't see it but you can feel it.\"", trans: "「愛就像風，你看不見，但你能感覺得到。」", info: "《留住一片情》，強調感官與直覺的經典。" },
+        { id: "004", orig: "\"Le coup de foudre.\" (French)", trans: "「一見鍾情。」（字面意：雷擊）", info: "法語常用語，強調愛情的突發性與不可抗力。" },
+        { id: "005",
