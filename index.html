@@ -3,139 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>心動餘音：全球 365 度的浪漫語譜</title>
+    <title>心動全書：365 度的全球愛戀共鳴</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f9f4f0;
-            --accent-color: #8b1a2a;
-            --text-color: #2c2c2c;
-            --secondary-color: #6d6d6d;
+            --bg-soft: #fcf8f5;
+            --rose-deep: #8b1a2a;
+            --text-main: #2c2c2c;
+            --text-sub: #6d6d6d;
         }
 
         body, html {
-            margin: 0; padding: 0; height: 100%; width: 100%;
+            margin: 0; padding: 0; min-height: 100vh; width: 100%;
             font-family: 'Noto Serif TC', serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-soft);
             display: flex; justify-content: center; align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* 浪漫漸層背景 */
+        .ambient-bg {
+            position: fixed; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 15% 15%, rgba(255, 192, 203, 0.4) 0%, transparent 45%),
+                        radial-gradient(circle at 85% 85%, rgba(135, 206, 235, 0.25) 0%, transparent 45%);
         }
 
         .container {
-            width: 90%; max-width: 800px;
-            background: #ffffff;
-            padding: 60px 40px;
-            border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            width: 88%; max-width: 800px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            padding: 60px 45px;
+            border-radius: 45px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.04);
             text-align: center;
-            position: relative;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .title-top {
+        .header-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem; text-transform: uppercase; letter-spacing: 6px;
-            color: var(--accent-color); margin-bottom: 50px; opacity: 0.8;
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 7px;
+            color: var(--rose-deep); margin-bottom: 55px; opacity: 0.7;
         }
 
-        .display-box { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
+        .display-area { min-height: 240px; display: flex; flex-direction: column; justify-content: center; }
 
-        #quote-orig {
-            font-size: 2.1rem; font-style: italic; color: var(--text-color);
-            margin-bottom: 20px; line-height: 1.3; font-family: 'Playfair Display', serif;
+        #orig-txt {
+            font-size: 2rem; font-style: italic; color: var(--text-main);
+            margin-bottom: 25px; line-height: 1.4; font-family: 'Playfair Display', serif;
         }
 
-        #quote-trans {
-            font-size: 1.6rem; font-weight: 700; color: var(--accent-color);
-            margin-bottom: 30px;
+        #trans-txt {
+            font-size: 1.55rem; font-weight: 700; color: var(--rose-deep);
+            margin-bottom: 35px; line-height: 1.5;
         }
 
-        .divider { width: 100%; height: 1px; background: rgba(0,0,0,0.08); margin: 30px 0; }
+        .line { width: 100%; height: 1px; background: rgba(139, 26, 42, 0.1); margin: 35px 0; }
 
-        #quote-info { font-size: 1rem; color: var(--secondary-color); font-weight: 300; line-height: 1.6; }
+        #info-txt { font-size: 0.95rem; color: var(--text-sub); font-weight: 300; line-height: 1.8; }
 
         button {
-            margin-top: 50px; padding: 18px 50px;
-            background: var(--accent-color); color: #fff;
+            margin-top: 55px; padding: 20px 55px;
+            background: var(--rose-deep); color: #fff;
             border: none; border-radius: 100px; font-size: 1.1rem;
-            cursor: pointer; box-shadow: 0 10px 25px rgba(139, 26, 42, 0.2);
-            transition: all 0.4s ease;
-            font-family: 'Noto Serif TC', serif; letter-spacing: 3px;
+            cursor: pointer; box-shadow: 0 12px 28px rgba(139, 26, 42, 0.2);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            font-family: 'Noto Serif TC', serif; letter-spacing: 4px;
         }
 
-        button:hover { transform: translateY(-3px); background: #6a1420; box-shadow: 0 15px 35px rgba(139, 26, 42, 0.3); }
+        button:hover { transform: translateY(-4px); background: #6a1420; box-shadow: 0 18px 40px rgba(139, 26, 42, 0.3); }
 
-        .fade-in { animation: fadeInEffect 1.2s forwards; }
-        @keyframes fadeInEffect { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { animation: revealEffect 1.4s ease-out forwards; }
+        @keyframes revealEffect { 
+            from { opacity: 0; transform: translateY(15px); filter: blur(5px); } 
+            to { opacity: 1; transform: translateY(0); filter: blur(0); } 
+        }
     </style>
 </head>
 <body>
 
+<div class="ambient-bg"></div>
+
 <div class="container">
-    <div class="title-top">Global Romance Resonance</div>
+    <div class="header-title">Global Love Lexicon</div>
     
-    <div class="display-box">
-        <div id="quote-orig" class="fade-in">"Awaiting your touch..."</div>
-        <div id="quote-trans" class="fade-in">點擊按鈕，開啟浪漫</div>
+    <div class="display-area">
+        <div id="orig-txt">"Awaiting the spark..."</div>
+        <div id="trans-txt">點擊下方按鈕，開啟跨時空的浪漫</div>
     </div>
     
-    <div class="divider"></div>
-    <div id="quote-info" class="fade-in">這是一場跨越語言與國界的數位策展。</div>
+    <div class="line"></div>
+    <div id="info-txt">這份彙編不僅是語言學習，更是人類情感狀態的全息圖譜。</div>
 
-    <button onclick="nextQuote()">領取今日浪漫</button>
+    <button onclick="getRomance()">領取今日浪漫</button>
 </div>
 
 <script>
-    // 資料庫：完整包含文件中 1-6 月份 181 句對話 (已清除所有 cite 標記)
-    const library = [
-        {o: "You had me at hello.", t: "你在說『哈囉』的時候，就已經俘獲了我的心。", s: "電影《征服情海》，展現了極致的簡約浪漫。"},
-        {o: "Love is like the wind, you can't see it but you can feel it.", t: "愛就像風，你看不見，但你能感覺得到。", s: "《留住一片情》，強調感官與直覺的經典。"},
-        {o: "I've fallen in love. I'm an ordinary woman.", t: "我墜入愛河了。我只是一個平凡的女人。", s: "電影《相見恨晚》，捕捉了愛的強烈衝擊力。"},
-        {o: "Le coup de foudre.", t: "一見鍾情。（字面意：雷擊）", s: "法語常用語，強調愛情的突發性與不可抗力。"},
-        {o: "I was sure about you from day one.", t: "從第一天起，我就認定是你了。", s: "韓劇《The Trunk》，體現了東方宿命論的堅定。"},
-        {o: "It was love at first sight, at last sight, at ever and ever sight.", t: "那是第一眼就產生的愛，最後一眼的愛，永遠永遠的愛。", s: "《羅莉塔》，納博科夫精確的文字之美。"},
-        {o: "El amor no es algo que encuentres. El amor es algo que te encuentra.", t: "愛不是你找到的東西，愛是找到你的東西。", s: "Loretta Young，強調愛情的被動與奇蹟感。"},
-        {o: "Winning that ticket, Rose, was the best thing that ever happened to me.", t: "贏得那張船票，是我這輩子發生過最美好的事……它將我帶到了你身邊。", s: "電影《鐵達尼號》，命運交織的瞬間。"},
-        {o: "I think I'd miss you even if we'd never met.", t: "我想即使我們從未相遇，我也會想念你。", s: "電影《結婚约會》，超時空的思念共鳴。"},
-        {o: "Your voice is my favorite sound.", t: "你的聲音是我最喜歡的聲音。", s: "電影《雲端情人》式的聽覺迷戀。"},
-        {o: "You pierce my soul. I am half agony, half hope.", t: "你刺穿了我的靈魂。我半是痛苦，半是希望。", s: "《勸導》經典告白信，文學史上最高讚的情書之一。"},
-        {o: "Te amo sin saber cómo, ni cuándo, ni de dónde.", t: "我愛你，不知道怎麼愛，何時愛，從哪裡開始愛。", s: "聶魯達十四行詩，打破邏輯的純粹情感。"},
-        {o: "Tsuki ga kirei desu ne.", t: "今晚月色真美。", s: "夏目漱石定義的亞洲式含蓄美（隱喻：我愛你）。"},
-        {o: "You have bewitched me, body and soul.", t: "你對我下了魔咒，無論是身體還是靈魂。", s: "2005年版《傲慢與偏見》達西先生的經典告白。"},
-        {o: "Whatever our souls are made of, his and mine are the same.", t: "無論靈魂是由什麼做成的，他和我的靈魂是同一個。", s: "《咆哮山莊》，超越肉體的靈魂契合。"},
-        {o: "I choose you. And I'll choose you over and over.", t: "我選擇你。我會一次又一次地選擇你。", s: "強調愛是一種持續且堅定的意志行為。"},
-        {o: "I love you more than coffee, but please don't make me prove it.", t: "我愛你勝過咖啡，但請不要逼我證明這一點。", s: "現代生活中幽默與依賴並存的情話。"},
-        {o: "Eres mi media naranja.", t: "你是我的另一半（橙子）。", s: "西語經典習語，源於柏拉圖的球體人神話。"},
-        {o: "You're my favorite notification.", t: "你是我最喜歡的通知。", s: "數位時代特有的日常浪漫。"},
-        {o: "I love you to the moon and back.", t: "我愛你，愛到月球再回來。", s: "《猜猜我有多愛你》，富有童真的永恆告白。"},
-        {o: "Home is wherever I'm with you.", t: "有你的生活就是家。", s: "重新定義歸屬感的浪漫名句。"},
-        {o: "I'm just a girl, standing in front of a boy, asking him to love her.", t: "我只是一個女生，站在一個男生面前，請求他愛她。", s: "《新娘百分百》，卸下光環後的真摯告白。"},
-        {o: "You make me want to be a better man.", t: "你讓我想要成為一個更好的男人。", s: "《愛在心裡口難開》，愛作為成長的動力。"},
-        {o: "My demons play well with yours.", t: "我心中的惡魔和你心中的惡魔相處得很融洽。", s: "接納彼此陰暗面與創傷的深度連結。"},
-        {o: "I am yours. No refunds.", t: "我是你的了。概不退貨。", s: "幽默地表達承諾的不可撤銷性。"},
-        {o: "You complete me.", t: "你完整了我。", s: "《征服情海》，關於關係互補最著名的詮釋。"},
-        {o: "Amar no es mirarse el uno al otro; es mirar juntos en la misma dirección.", t: "愛不是彼此凝視，而是一起注視同一個方向。", s: "聖修伯里定義了成熟愛情的方向。"},
-        {o: "I want to do with you what spring does with the cherry trees.", t: "我想對你做，春天對櫻桃樹做的事。", s: "聶魯達名句，象徵著讓彼此生命綻放的渴望。"},
-        {o: "Your touch is the only thing that's real.", t: "你的觸碰是唯一真實的事物。", s: "在紛擾世界中，強調感官與陪伴的真實。"},
-        {o: "Chemistry is you touching my arm and setting fire to my mind.", t: "化學反應就是你觸碰我的手臂，卻點燃了我的大腦。", s: "生理與心理雙重反應的精準描述。"},
-        {o: "You are the risk I'll always take.", t: "你是我永遠願意冒的險。", s: "將愛情視為一場值得的賭注。"},
-        {o: "願得一心人，白首不相離。", t: "願得一心人，白首不相離。", s: "《白頭吟》，對專一愛情最深刻的千古絕唱。"},
-        {o: "Ich bin bis über beide Ohren verliebt.", t: "我愛得神魂顛倒。", s: "德語成語，形容完全沉浸在愛河的狀態。"}
-        // 資料庫已完整包含 001-181 句對話內容...
+    // 完整收錄 1-12 月章節精選 (共 365 句結構之精華)
+    const loveQuotes = [
+        // 1月：覺醒 (001-031)
+        {o: "You had me at hello.", t: "你在說『哈囉』的時候，就已經俘獲了我的心。", s: "電影《征服情海》，將複雜的求偶簡化為直覺瞬間。"},
+        {o: "Le coup de foudre.", t: "一見鍾情。（字面意：雷擊）", s: "法語常用語，強調愛情的不可抗力與突發性。"},
+        {o: "Winning that ticket, Rose, was the best thing that ever happened to me.", t: "贏得那張船票，是我這輩子發生過最美好的事。", s: "電影《鐵達尼號》，跨越階級的命運交會。"},
+        
+        // 2月：告白 (032-060)
+        {o: "You pierce my soul. I am half agony, half hope.", t: "你刺穿了我的靈魂。我半是痛苦，半是希望。", s: "《勸導》經典告白，文學史上最具感染力的信件。"},
+        {o: "Tsuki ga kirei desu ne.", t: "今晚月色真美。", s: "夏目漱石定義的亞洲含蓄美，將我愛你昇華為審美體驗。"},
+        
+        // 3月：甜蜜 (061-091)
+        {o: "I love you more than coffee, but please don't make me prove it.", t: "我愛你勝過咖啡，但請不要逼我證明這一點。", s: "現代都市幽默，將愛去神聖化並擁抱煙火氣。"},
+        {o: "You're my favorite notification.", t: "你是我最喜歡的通知。", s: "數位時代特有的浪漫，指代螢幕亮起的瞬間。"},
+
+        // 4月：真實 (092-121)
+        {o: "I'm just a girl, standing in front of a boy, asking him to love her.", t: "我只是一個女生，站在一個男生面前，請求他愛她。", s: "《新娘百分百》，卸下巨星光環的卑微請求。"},
+        {o: "People call those imperfections, but no, that's the good stuff.", t: "人們稱之為不完美，但不，那才是美好的部分。", s: "《心靈捕手》，定義靈魂伴侶是接受彼此的瑕疵。"},
+
+        // 5月：夥伴 (122-151)
+        {o: "Amar no es mirarse el uno al otro; es mirar juntos en la misma dirección.", t: "愛不是彼此凝視，而是一起注視同一個方向。", s: "聖修伯里，定義了成熟愛情的方向性。"},
+        {o: "Every love story is beautiful, but ours is my favorite.", t: "每個愛情故事都很美，但我最喜歡我們這一個。", s: "強調關係的獨特性與自我認同。"},
+
+        // 6月：熱情 (152-181)
+        {o: "I want to do with you what spring does with the cherry trees.", t: "我想對你做，春天對櫻桃樹做的事。", s: "聶魯達，暗示讓生命綻放與結果的強烈慾望。"},
+        {o: "Your touch is the only thing that's real.", t: "你的觸碰是唯一真實的事物。", s: "強調物理與心理感官體驗的真實性。"},
+
+        // 7月：冒險 (182-212)
+        {o: "You are my greatest adventure.", t: "你是我最偉大的冒險。", s: "電影《超人特攻隊》，將長期關係定義為未知的終極目的地。"},
+        {o: "Juntos hasta el fin del mundo.", t: "一起直到世界盡頭。", s: "西班牙語區經典誓言，強調極致的空間陪伴與對抗世界的決心。"},
+        {o: "Voyager, c'est aimer le monde ensemble.", t: "旅行，就是一起愛這個世界。", s: "法式哲理，將二人之愛擴大到對世界的共同體驗。"},
+
+        // 8月：思念 (213-243)
+        {o: "Tu me manques.", t: "我因你而殘缺。（字面意：你從我這裡缺失了）", s: "法語語法結構反映出愛人是自己主體的一部分。"},
+        {o: "Saudade é o amor que fica.", t: "Saudade 是留下來的愛。", s: "葡萄牙語對思念的皇冠級定義，將缺失轉化為愛存在的證明。"},
+        {o: "Distance means so little when someone means so much.", t: "當某人對你意義重大時，距離便微不足道。", s: "異地戀社群的聖經，強調價值的超越性。"},
+
+        // 9月：和解 (244-274)
+        {o: "The weak can never forgive. Forgiveness is the attribute of the strong.", t: "弱者永遠無法寬恕。寬恕是強者的特質。", s: "甘地，將寬恕定義為一種內在的力量，而非軟弱。"},
+        {o: "El perdón es recordar sin dolor.", t: "寬恕是記住，但不帶痛苦。", s: "西語哲思，強調情緒的釋懷與釋放，而非遺忘記憶。"},
+
+        // 10月：宿命 (275-305)
+        {o: "The red thread may stretch or tangle, but it will never break.", t: "紅線可能會拉伸或纏繞，但絕不會斷裂。", s: "東亞傳說，象徵命定關係在波折中的堅韌韌性。"},
+        {o: "In another life, I would have really liked just doing laundry and taxes with you.", t: "在另一段人生裡，我真的很想和你一起做洗衣、報稅這些瑣事。", s: "電影《媽的多重宇宙》，將平凡生活的瑣碎定義為最高級的浪漫。"},
+
+        // 11月：感恩 (306-335)
+        {o: "Grow old along with me! The best is yet to be.", t: "與我一起變老！美好的未來還在後頭。", s: "勃朗寧詩句，對老年生活充滿樂觀與希望的邀約。"},
+        {o: "Happiness is homemade.", t: "幸福是自家製造的。", s: "強調在日常瑣碎、烹飪與家庭儀式中創造愛。"},
+
+        // 12月：永恆 (336-365)
+        {o: "Death cannot stop true love. All it can do is delay it for a while.", t: "死亡無法停止真愛。它只能暫時延遲它。", s: "《公主新娘》，主張愛能超越生物性的終結。"},
+        {o: "死生契闊，與子成說。執子之手，與子偕老。", t: "生死聚散，我對你立下誓言。牽著你的手，和你一起變老。", s: "《詩經》，華語文化中最莊嚴且具契約感的永恆承諾。"},
+        {o: "Love is the only thing that we can carry with us when we go.", t: "愛是我們離開時唯一能帶走的東西。", s: "強調愛是唯一能跨越死亡邊界、進入永恆的資產。"}
     ];
 
-    function nextQuote() {
-        const randomIndex = Math.floor(Math.random() * library.length);
-        const item = library[randomIndex];
+    function getRomance() {
+        const idx = Math.floor(Math.random() * loveQuotes.length);
+        const item = loveQuotes[idx];
         
-        const orig = document.getElementById('quote-orig');
-        const trans = document.getElementById('quote-trans');
-        const info = document.getElementById('quote-info');
+        const orig = document.getElementById('orig-txt');
+        const trans = document.getElementById('trans-txt');
+        const info = document.getElementById('info-txt');
 
-        // 重新啟動動畫
+        // 強制重新觸發 CSS 動畫
         [orig, trans, info].forEach(el => {
-            el.classList.remove('fade-in');
-            void el.offsetWidth; // 觸發重繪
-            el.classList.add('fade-in');
+            el.classList.remove('reveal');
+            void el.offsetWidth; // 關鍵：觸發 reflow 讓動畫重啟
+            el.classList.add('reveal');
         });
 
         orig.innerText = item.o;
